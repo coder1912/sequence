@@ -25,14 +25,15 @@ export default function Projects() {
           Featured Projects
         </h2>
         <p className="text-neutral-400 text-sm sm:text-base max-w-xl font-normal">
-          Three focal case studies representing the core pillars: Business &amp; Data Analytics, Financial Modeling, and Embedded Systems.
+          Five focal case studies representing the core pillars: Business &amp; Data Analytics, Financial Modeling, and Embedded Systems.
         </p>
       </div>
 
-      {/* Featured Projects List (3 Distinct Editorial Layouts) */}
+      {/* Featured Projects List */}
       <div className="space-y-12 sm:space-y-16">
         {featuredProjects.map((project, index) => {
           const numberStr = (index + 1).toString().padStart(2, "0");
+          const totalStr = featuredProjects.length.toString().padStart(2, "0");
           const hasImageFailed = imageErrors[project.id];
 
           return (
@@ -50,7 +51,7 @@ export default function Projects() {
                         {project.pillarLabel}
                       </span>
                       <span className="text-xs font-mono text-neutral-500">
-                        {numberStr} / 03
+                        {numberStr} / {totalStr}
                       </span>
                     </div>
 

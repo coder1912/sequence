@@ -171,7 +171,7 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
       {/* STAGE 4: TRANSITION (90% SCROLL - CENTER BOTTOM) */}
       <motion.div
         style={{ opacity: stage4Opacity, y: stage4Y }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center w-full px-4"
+        className="absolute bottom-10 inset-x-0 mx-auto text-center w-full max-w-xl px-4 pointer-events-none"
       >
         <div className="text-xs font-mono text-neutral-400 tracking-wider mb-1">
           FEATURED WORK

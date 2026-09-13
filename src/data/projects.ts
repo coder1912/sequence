@@ -25,7 +25,101 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   // -------------------------------------------------------------
-  // FEATURED PROJECT 01: AML & FRAUD RISK ASSESSMENT (FINANCE)
+  // FEATURED PROJECT 01: CUSTOMER CHURN & RISK ANALYSIS (BUSINESS-DATA)
+  // -------------------------------------------------------------
+  {
+    id: "customer-churn",
+    slug: "customer-churn",
+    title: "Customer Churn & Risk Analysis",
+    category: "BUSINESS / DATA",
+    pillarLabel: "01 — Business & Data Analytics",
+    featured: true,
+    tagline: "End-to-end data pipeline and Random Forest predictive model supporting retention",
+    description:
+      "Built an end-to-end analytics pipeline encompassing requirements gathering, SQL Server ETL processing, Power BI visualization, and a Random Forest predictive model to identify churn drivers and guide retention strategies.",
+    technologies: ["SQL Server", "Power BI", "Python", "Random Forest", "ETL"],
+    metrics: "End-to-End Retention Strategy Pipeline",
+    focus: [
+      "Requirements gathering & stakeholder alignment",
+      "SQL Server ETL pipeline",
+      "Random Forest churn classification",
+      "Executive retention KPI dashboard",
+    ],
+    coverImage: "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022348.png",
+    images: [
+      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022348.png",
+      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022449.png",
+      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022529.png",
+    ],
+    folderPath: "Projects/BUSINESS-DATA/Customer Churn & Risk Analysis",
+    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
+  },
+
+  // -------------------------------------------------------------
+  // FEATURED PROJECT 02: REVPRO INSIGHTS (BUSINESS-DATA)
+  // -------------------------------------------------------------
+  {
+    id: "revpro-insights",
+    slug: "revpro-insights",
+    title: "RevPro Insights",
+    category: "BUSINESS / DATA",
+    pillarLabel: "01 — Business & Data Analytics",
+    featured: true,
+    tagline: "Power BI executive dashboard visualizing 3-year revenue and profit trends",
+    description:
+      "Developed a corporate reporting dashboard visualizing three years of longitudinal revenue, operational expense, and profitability trends to drive data-informed executive decision making.",
+    technologies: ["Power BI", "DAX", "Data Modeling", "Financial Visualization"],
+    metrics: "3-Year Multi-Dimensional Trend Analytics",
+    focus: [
+      "Multi-year longitudinal trend analysis",
+      "Interactive slice-and-dice dashboarding",
+      "Profitability margin decomposition",
+      "C-Suite management reporting",
+    ],
+    coverImage: "/projects/business-data/RevPro Insights/RevPro.png",
+    images: ["/projects/business-data/RevPro Insights/RevPro.png"],
+    folderPath: "Projects/BUSINESS-DATA/RevPro Insights",
+    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
+  },
+
+  // -------------------------------------------------------------
+  // FEATURED PROJECT 03: FINANCIAL MODELING (FINANCE)
+  // -------------------------------------------------------------
+  {
+    id: "financial-modeling",
+    slug: "financial-modeling",
+    title: "Financial Modeling — Clothing Brand",
+    category: "FINANCE",
+    pillarLabel: "02 — Financial Analysis",
+    featured: true,
+    tagline: "Integrated financial model covering revenue forecasting, pricing, margins, and viability",
+    description:
+      "End-to-end corporate financial model built in Excel for an apparel venture. Developed dynamic revenue forecast schedules, product-level unit economics, gross margin thresholds, fixed/variable cost structures, break-even milestones, and scenario-based sensitivity analyses.",
+    technologies: ["Excel", "Financial Modelling", "Scenario Analysis", "Sensitivity Tables", "FP&A"],
+    scale: "Multi-Year Projections · Dynamic Sensitivity Scenarios",
+    metrics: "Revenue · Margins · Forecasting · Break-Even Analysis",
+    focus: [
+      "Revenue forecasting & unit economics",
+      "Product pricing & gross margins",
+      "Fixed vs variable cost allocation",
+      "Break-even point & payback calculation",
+      "Scenario & sensitivity testing",
+      "Monthly & annual pro-forma statements",
+    ],
+    problem:
+      "Emerging retail and apparel businesses face severe cash flow uncertainty due to inventory holding costs, fluctuating manufacturing minimums, and unpredictable seasonal demand.",
+    approach:
+      "Constructed a modular financial architecture linking operational drivers (COGS, marketing spend, return rates) directly to pro-forma P&L statements with dynamic best-, base-, and worst-case scenario switches.",
+    results:
+      "Delivered strategic clarity on optimal product pricing tiers, required working capital reserves, and the exact sales volume needed to achieve operational profitability.",
+    coverImage: "/projects/finance/Financial Modeling — Clothing Brand/Clothing Brand.png",
+    images: ["/projects/finance/Financial Modeling — Clothing Brand/Clothing Brand.png"],
+    folderPath: "Projects/FINANCE/Financial Modeling — Clothing Brand",
+    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
+  },
+
+  // -------------------------------------------------------------
+  // FEATURED PROJECT 04: AML & FRAUD RISK ASSESSMENT (FINANCE)
   // -------------------------------------------------------------
   {
     id: "aml-fraud-risk",
@@ -68,43 +162,7 @@ export const PROJECTS: Project[] = [
   },
 
   // -------------------------------------------------------------
-  // FEATURED PROJECT 02: FINANCIAL MODELING (FINANCE)
-  // -------------------------------------------------------------
-  {
-    id: "financial-modeling",
-    slug: "financial-modeling",
-    title: "Financial Modeling — Clothing Brand",
-    category: "FINANCE",
-    pillarLabel: "02 — Financial Analysis",
-    featured: true,
-    tagline: "Integrated financial model covering revenue forecasting, pricing, margins, and viability",
-    description:
-      "End-to-end corporate financial model built in Excel for an apparel venture. Developed dynamic revenue forecast schedules, product-level unit economics, gross margin thresholds, fixed/variable cost structures, break-even milestones, and scenario-based sensitivity analyses.",
-    technologies: ["Excel", "Financial Modelling", "Scenario Analysis", "Sensitivity Tables", "FP&A"],
-    scale: "Multi-Year Projections · Dynamic Sensitivity Scenarios",
-    metrics: "Revenue · Margins · Forecasting · Break-Even Analysis",
-    focus: [
-      "Revenue forecasting & unit economics",
-      "Product pricing & gross margins",
-      "Fixed vs variable cost allocation",
-      "Break-even point & payback calculation",
-      "Scenario & sensitivity testing",
-      "Monthly & annual pro-forma statements",
-    ],
-    problem:
-      "Emerging retail and apparel businesses face severe cash flow uncertainty due to inventory holding costs, fluctuating manufacturing minimums, and unpredictable seasonal demand.",
-    approach:
-      "Constructed a modular financial architecture linking operational drivers (COGS, marketing spend, return rates) directly to pro-forma P&L statements with dynamic best-, base-, and worst-case scenario switches.",
-    results:
-      "Delivered strategic clarity on optimal product pricing tiers, required working capital reserves, and the exact sales volume needed to achieve operational profitability.",
-    coverImage: "/projects/finance/Financial Modeling — Clothing Brand/Clothing Brand.png",
-    images: ["/projects/finance/Financial Modeling — Clothing Brand/Clothing Brand.png"],
-    folderPath: "Projects/FINANCE/Financial Modeling — Clothing Brand",
-    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
-  },
-
-  // -------------------------------------------------------------
-  // FEATURED PROJECT 03: AGRISENSE CONTROL SYSTEM (IOT)
+  // FEATURED PROJECT 05: AGRISENSE CONTROL SYSTEM (IOT)
   // -------------------------------------------------------------
   {
     id: "agrisense",
@@ -312,29 +370,6 @@ export const PROJECTS: Project[] = [
   // BUSINESS / DATA PROJECTS
   // -------------------------------------------------------------
   {
-    id: "revpro-insights",
-    slug: "revpro-insights",
-    title: "RevPro Insights",
-    category: "BUSINESS / DATA",
-    pillarLabel: "Business & Data Analytics",
-    featured: false,
-    tagline: "Power BI executive dashboard visualizing 3-year revenue and profit trends",
-    description:
-      "Developed a corporate reporting dashboard visualizing three years of longitudinal revenue, operational expense, and profitability trends to drive data-informed executive decision making.",
-    technologies: ["Power BI", "DAX", "Data Modeling", "Financial Visualization"],
-    metrics: "3-Year Multi-Dimensional Trend Analytics",
-    focus: [
-      "Multi-year longitudinal trend analysis",
-      "Interactive slice-and-dice dashboarding",
-      "Profitability margin decomposition",
-      "C-Suite management reporting",
-    ],
-    coverImage: "/projects/business-data/RevPro Insights/RevPro.png",
-    images: ["/projects/business-data/RevPro Insights/RevPro.png"],
-    folderPath: "Projects/BUSINESS-DATA/RevPro Insights",
-    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
-  },
-  {
     id: "credit-card-fraud",
     slug: "credit-card-fraud",
     title: "Credit Card Fraud Detection & Risk Dashboard",
@@ -358,33 +393,6 @@ export const PROJECTS: Project[] = [
       "/projects/business-data/Credit Card Fraud Detection & Risk Dashboard/Screenshot 2026-09-12 023038.png",
     ],
     folderPath: "Projects/BUSINESS-DATA/Credit Card Fraud Detection & Risk Dashboard",
-    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
-  },
-  {
-    id: "customer-churn",
-    slug: "customer-churn",
-    title: "Customer Churn & Risk Analysis",
-    category: "BUSINESS / DATA",
-    pillarLabel: "Business & Data Analytics",
-    featured: false,
-    tagline: "End-to-end data pipeline and Random Forest predictive model supporting retention",
-    description:
-      "Built an end-to-end analytics pipeline encompassing requirements gathering, SQL Server ETL processing, Power BI visualization, and a Random Forest predictive model to identify churn drivers and guide retention strategies.",
-    technologies: ["SQL Server", "Power BI", "Python", "Random Forest", "ETL"],
-    metrics: "End-to-End Retention Strategy Pipeline",
-    focus: [
-      "Requirements gathering & stakeholder alignment",
-      "SQL Server ETL pipeline",
-      "Random Forest churn classification",
-      "Executive retention KPI dashboard",
-    ],
-    coverImage: "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022348.png",
-    images: [
-      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022348.png",
-      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022449.png",
-      "/projects/business-data/Customer Churn & Risk Analysis/Screenshot 2026-09-12 022529.png",
-    ],
-    folderPath: "Projects/BUSINESS-DATA/Customer Churn & Risk Analysis",
     driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
   },
   {

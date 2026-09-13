@@ -22,6 +22,12 @@ export default function ScrollyCanvas({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef<number>(0);
+  const rafIdRef = useRef<number | null>(null);
+  const dimensionsRef = useRef<{ width: number; height: number; dpr: number }>({
+    width: 0,
+    height: 0,
+    dpr: 1,
+  });
   const [, setIsReady] = useState(false);
 
   // Track scroll progress through the 500vh container
@@ -30,14 +36,14 @@ export default function ScrollyCanvas({
     offset: ["start start", "end end"],
   });
 
-  // Smooth physics spring to remove scroll wheel stutter
+  // Smooth physics spring tuned for responsive touch and fluid desktop scrolling
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 280,
-    damping: 36,
+    stiffness: 320,
+    damping: 38,
     restDelta: 0.0005,
   });
 
-  // Draw image with exact object-fit: cover math and Retina high-DPI scaling
+  // Draw image with exact object-fit: cover math and high-clarity canvas rendering
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -47,17 +53,19 @@ export default function ScrollyCanvas({
     const img = imagesRef.current[frameIndex];
     if (!img || !img.complete || img.naturalWidth === 0) return;
 
-    const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
-    const displayWidth = canvas.clientWidth;
-    const displayHeight = canvas.clientHeight;
-
-    const targetWidth = Math.floor(displayWidth * dpr);
-    const targetHeight = Math.floor(displayHeight * dpr);
-
-    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
-      canvas.width = targetWidth;
-      canvas.height = targetHeight;
+    let { width: displayWidth, height: displayHeight, dpr } = dimensionsRef.current;
+    if (displayWidth === 0 || displayHeight === 0) {
+      dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      displayWidth = canvas.clientWidth || window.innerWidth;
+      displayHeight = canvas.clientHeight || window.innerHeight;
+      dimensionsRef.current = { width: displayWidth, height: displayHeight, dpr };
+      canvas.width = Math.floor(displayWidth * dpr);
+      canvas.height = Math.floor(displayHeight * dpr);
     }
+
+    const targetWidth = canvas.width;
+    const targetHeight = canvas.height;
+    if (targetWidth === 0 || targetHeight === 0) return;
 
     const imgWidth = img.naturalWidth;
     const imgHeight = img.naturalHeight;
@@ -74,11 +82,11 @@ export default function ScrollyCanvas({
     const offsetY = Math.floor((targetHeight - renderHeight) / 2);
 
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
+    ctx.imageSmoothingQuality = "medium";
     ctx.drawImage(img, offsetX, offsetY, renderWidth, renderHeight);
   }, []);
 
-  // Intelligent preloader
+  // Intelligent preloader with async decoding for zero main-thread hitching
   useEffect(() => {
     let isCancelled = false;
     let loadedCount = 0;
@@ -113,6 +121,7 @@ export default function ScrollyCanvas({
 
     for (let i = 0; i < totalFrames; i++) {
       const img = new Image();
+      img.decoding = "async";
       const padded = i.toString().padStart(2, "0");
 
       // Direct, existing paths to prevent 404s
@@ -144,19 +153,36 @@ export default function ScrollyCanvas({
     };
   }, [totalFrames, onLoadingProgress, onLoaded, drawFrame]);
 
-  // Window resize handler
+  // Window resize handler caching dimensions to eliminate layout thrashing
   useEffect(() => {
-    const handleResize = () => {
+    const updateDimensions = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      const width = canvas.clientWidth || window.innerWidth;
+      const height = canvas.clientHeight || window.innerHeight;
+      dimensionsRef.current = { width, height, dpr };
+
+      const targetWidth = Math.floor(width * dpr);
+      const targetHeight = Math.floor(height * dpr);
+
+      if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+      }
+
       if (imagesRef.current.length > 0) {
         drawFrame(currentFrameRef.current);
       }
     };
 
-    window.addEventListener("resize", handleResize, { passive: true });
-    return () => window.removeEventListener("resize", handleResize);
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions, { passive: true });
+    return () => window.removeEventListener("resize", updateDimensions);
   }, [drawFrame]);
 
-  // Scrub frames on spring progress update
+  // Scrub frames on spring progress update with rAF throttling
   useEffect(() => {
     const unsubscribe = smoothProgress.on("change", (latest) => {
       const clamped = Math.min(Math.max(latest, 0), 1);
@@ -167,13 +193,23 @@ export default function ScrollyCanvas({
 
       if (targetFrame !== currentFrameRef.current) {
         currentFrameRef.current = targetFrame;
-        requestAnimationFrame(() => {
+        if (rafIdRef.current !== null) {
+          cancelAnimationFrame(rafIdRef.current);
+        }
+        rafIdRef.current = requestAnimationFrame(() => {
           drawFrame(targetFrame);
+          rafIdRef.current = null;
         });
       }
     });
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+    };
   }, [smoothProgress, totalFrames, drawFrame]);
 
   return (
@@ -184,11 +220,16 @@ export default function ScrollyCanvas({
     >
       {/* Sticky full-screen viewport */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* Canvas element */}
+        {/* Canvas element with hardware acceleration and crisp image rendering */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ willChange: "transform" }}
+          className="absolute inset-0 w-full h-full object-cover contrast-[1.04] brightness-[1.01]"
+          style={{
+            willChange: "transform",
+            imageRendering: "-webkit-optimize-contrast",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+          }}
         />
 
         {/* Subtle radial vignette for seamless page edge blending */}

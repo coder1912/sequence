@@ -44,7 +44,7 @@ export default function Home() {
         {/* 2. SHORT ABOUT / POSITIONING */}
         <AboutSection />
 
-        {/* 3. FEATURED PROJECTS (EXACTLY THREE) */}
+        {/* 3. FEATURED PROJECTS */}
         <Projects />
 
         {/* 4. EXPERIENCE (CAREER TIMELINE) */}
