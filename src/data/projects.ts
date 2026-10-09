@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     slug: "customer-churn",
     title: "Customer Churn & Risk Analysis",
     category: "BUSINESS / DATA",
-    pillarLabel: "01 — Business & Data Analytics",
+    pillarLabel: "02 — Data Analytics & Business Intelligence",
     featured: true,
     tagline: "End-to-end data pipeline and Random Forest predictive model supporting retention",
     description:
@@ -56,14 +56,60 @@ export const PROJECTS: Project[] = [
   },
 
   // -------------------------------------------------------------
-  // FEATURED PROJECT 02: REVPRO INSIGHTS (BUSINESS-DATA)
+  // FEATURED PROJECT 02: PROJECT MANAGEMENT MIS DASHBOARD (BUSINESS-DATA)
+  // -------------------------------------------------------------
+  {
+    id: "mis-dashboard",
+    slug: "mis-dashboard",
+    title: "Project Management MIS Dashboard | Tableau",
+    category: "BUSINESS / DATA",
+    pillarLabel: "02 — Data Analytics & Business Intelligence",
+    featured: true,
+    tagline: "Interactive Tableau MIS dashboard tracking project performance, budget utilization, and status KPIs",
+    description:
+      "Created an interactive MIS dashboard in Tableau to monitor project performance, project status, and budget utilization, supporting data-driven project tracking and management decision-making.",
+    technologies: [
+      "Tableau",
+      "MIS Reporting",
+      "KPI Monitoring",
+      "Project Performance Analysis",
+      "Budget Analysis",
+      "Data Visualization",
+      "Decision Support",
+    ],
+    metrics: "Project Performance · Budget Utilization · Status KPIs",
+    scale: "Portfolio Tracking · Budget vs. Expense Decomposition",
+    focus: [
+      "Project status and KPI monitoring",
+      "Monthly project trends",
+      "Project completion and cancellation analysis",
+      "Budget utilization by project type",
+      "Project-level budget versus expenses",
+      "Interactive filtering by Project Manager",
+    ],
+    problem:
+      "Organizations managing multiple concurrent initiatives often lack consolidated visibility into project health, leading to undetected schedule slippage, misaligned manager capacity, and budget overruns.",
+    approach:
+      "Engineered an interactive MIS dashboard in Tableau by integrating cross-functional project tracking data, standardizing milestone KPIs, computing variance between budgeted vs. actual expenditure, and implementing parametric filtering by Project Manager and project category.",
+    results:
+      "Delivered centralized visibility across active, completed, and at-risk projects, enabling management to identify budget variance early and make proactive, data-informed resource allocations.",
+    coverImage: "/projects/business-data/MIS Dashboard/Screenshot 2026-10-09 at 9.50.34 AM.png",
+    images: ["/projects/business-data/MIS Dashboard/Screenshot 2026-10-09 at 9.50.34 AM.png"],
+    demoUrl:
+      "https://public.tableau.com/views/MIS1_17907909312630/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
+    folderPath: "Projects/BUSINESS-DATA/MIS Dashboard",
+    driveFolderUrl: "https://drive.google.com/drive/u/2/folders/1-BViDTPG3cKgVDHdKlVcSONFnmRDJsQw",
+  },
+
+  // -------------------------------------------------------------
+  // FEATURED PROJECT 03: REVPRO INSIGHTS (BUSINESS-DATA)
   // -------------------------------------------------------------
   {
     id: "revpro-insights",
     slug: "revpro-insights",
     title: "RevPro Insights",
     category: "BUSINESS / DATA",
-    pillarLabel: "01 — Business & Data Analytics",
+    pillarLabel: "02 — Data Analytics & Business Intelligence",
     featured: true,
     tagline: "Power BI executive dashboard visualizing 3-year revenue and profit trends",
     description:
@@ -83,14 +129,14 @@ export const PROJECTS: Project[] = [
   },
 
   // -------------------------------------------------------------
-  // FEATURED PROJECT 03: FINANCIAL MODELING (FINANCE)
+  // FEATURED PROJECT 04: FINANCIAL MODELING (FINANCE)
   // -------------------------------------------------------------
   {
     id: "financial-modeling",
     slug: "financial-modeling",
     title: "Financial Modeling — Clothing Brand",
     category: "FINANCE",
-    pillarLabel: "02 — Financial Analysis",
+    pillarLabel: "03 — Finance & Banking Analytics",
     featured: true,
     tagline: "Integrated financial model covering revenue forecasting, pricing, margins, and viability",
     description:
@@ -119,14 +165,14 @@ export const PROJECTS: Project[] = [
   },
 
   // -------------------------------------------------------------
-  // FEATURED PROJECT 04: AML & FRAUD RISK ASSESSMENT (FINANCE)
+  // FEATURED PROJECT 05: AML & FRAUD RISK ASSESSMENT (FINANCE)
   // -------------------------------------------------------------
   {
     id: "aml-fraud-risk",
     slug: "aml-fraud-risk",
     title: "AML & Fraud Risk Assessment in Banking",
     category: "FINANCE",
-    pillarLabel: "02 — Financial Analysis",
+    pillarLabel: "03 — Finance & Banking Analytics",
     featured: true,
     tagline: "Regulatory risk analytics and suspicious pattern detection across banking transactions",
     description:
@@ -162,15 +208,15 @@ export const PROJECTS: Project[] = [
   },
 
   // -------------------------------------------------------------
-  // FEATURED PROJECT 05: AGRISENSE CONTROL SYSTEM (IOT)
+  // AGRISENSE CONTROL SYSTEM (IOT) - BROADER COLLECTION
   // -------------------------------------------------------------
   {
     id: "agrisense",
     slug: "agrisense",
     title: "AgriSense Control System",
     category: "EMBEDDED / IoT",
-    pillarLabel: "03 — Embedded Systems & IoT",
-    featured: true,
+    pillarLabel: "Embedded Systems & IoT",
+    featured: false,
     tagline: "Smart agricultural telemetry with environmental sensors and remote monitoring dashboard",
     description:
       "Precision agriculture automation platform coupling field-deployed sensor microcontrollers with a centralized remote monitoring dashboard. Automates irrigation triggers based on soil moisture, ambient humidity, and temperature telemetry.",

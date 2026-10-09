@@ -87,6 +87,21 @@ export default function ProjectDetailPage({ params }: ProjectDetailProps) {
           </div>
         </header>
 
+        {/* Interactive Dashboard Link (if available) */}
+        {project.demoUrl && (
+          <div className="mb-10">
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-minimal-primary inline-flex items-center gap-2 text-xs font-mono"
+            >
+              <span>Explore Interactive Dashboard</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        )}
+
         {/* Technologies List */}
         <section className="mb-10">
           <h2 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">

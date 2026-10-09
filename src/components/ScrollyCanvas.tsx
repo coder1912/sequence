@@ -43,11 +43,17 @@ export default function ScrollyCanvas({
     restDelta: 0.0005,
   });
 
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
+
   // Draw image with exact object-fit: cover math and high-clarity canvas rendering
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false });
+
+    if (!ctxRef.current) {
+      ctxRef.current = canvas.getContext("2d", { alpha: false, desynchronized: true });
+    }
+    const ctx = ctxRef.current;
     if (!ctx) return;
 
     const img = imagesRef.current[frameIndex];
@@ -82,7 +88,7 @@ export default function ScrollyCanvas({
     const offsetY = Math.floor((targetHeight - renderHeight) / 2);
 
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "medium";
+    ctx.imageSmoothingQuality = "high";
     ctx.drawImage(img, offsetX, offsetY, renderWidth, renderHeight);
   }, []);
 
@@ -101,8 +107,11 @@ export default function ScrollyCanvas({
       }
     }, 1200);
 
-    const handleSingleLoad = () => {
+    const handleSingleLoad = (loadedImg?: HTMLImageElement) => {
       if (isCancelled) return;
+      if (loadedImg && typeof loadedImg.decode === "function") {
+        loadedImg.decode().catch(() => {});
+      }
       loadedCount++;
       const progress = Math.round((loadedCount / totalFrames) * 100);
       onLoadingProgress?.(progress);
@@ -130,7 +139,7 @@ export default function ScrollyCanvas({
       const pngFallback = `/sequence/frame_${padded}_delay-0.083s.png`;
 
       img.src = primaryPath;
-      img.onload = handleSingleLoad;
+      img.onload = () => handleSingleLoad(img);
 
       img.onerror = () => {
         if (img.src.includes(primaryPath)) {
@@ -184,6 +193,8 @@ export default function ScrollyCanvas({
 
   // Scrub frames on spring progress update with rAF throttling
   useEffect(() => {
+    let pendingFrame: number | null = null;
+
     const unsubscribe = smoothProgress.on("change", (latest) => {
       const clamped = Math.min(Math.max(latest, 0), 1);
       const targetFrame = Math.min(
@@ -192,14 +203,16 @@ export default function ScrollyCanvas({
       );
 
       if (targetFrame !== currentFrameRef.current) {
-        currentFrameRef.current = targetFrame;
-        if (rafIdRef.current !== null) {
-          cancelAnimationFrame(rafIdRef.current);
+        pendingFrame = targetFrame;
+        if (rafIdRef.current === null) {
+          rafIdRef.current = requestAnimationFrame(() => {
+            if (pendingFrame !== null && pendingFrame !== currentFrameRef.current) {
+              currentFrameRef.current = pendingFrame;
+              drawFrame(pendingFrame);
+            }
+            rafIdRef.current = null;
+          });
         }
-        rafIdRef.current = requestAnimationFrame(() => {
-          drawFrame(targetFrame);
-          rafIdRef.current = null;
-        });
       }
     });
 
@@ -226,7 +239,6 @@ export default function ScrollyCanvas({
           className="absolute inset-0 w-full h-full object-cover contrast-[1.04] brightness-[1.01]"
           style={{
             willChange: "transform",
-            imageRendering: "-webkit-optimize-contrast",
             transform: "translateZ(0)",
             backfaceVisibility: "hidden",
           }}

@@ -5,7 +5,7 @@ export interface ExperienceItem {
   location?: string;
   period: string;
   badge?: string;
-  type: "Full-Time / Contract" | "Internship" | "Entrepreneurial" | "Freelance";
+  type: string;
   description: string;
   contributions: string[];
   skills: string[];
@@ -30,52 +30,38 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     id: "mecwin",
-    role: "R&D Junior Engineer — Firmware & Reporting Analytics",
-    company: "Mecwin Technologies India Pvt. Ltd.",
+    role: "R&D Junior Engineer",
+    company: "Mecwin Technologies India Pvt Ltd",
     location: "Bangalore, India",
     period: "Sep 2023 – Feb 2024",
     type: "Full-Time / Contract",
     description:
-      "Bridged engineering telemetry and executive business reporting across solar MPPT controller products. Managed field data integrity, functional specifications, and R&D budget tracking.",
+      "Bridged business and technical requirements across R&D initiatives, collaborating with cross-functional technology teams within a Scrum-based delivery environment.",
     contributions: [
-      "Delivered financial-grade data integrity for senior stakeholder reporting, achieving >90% accuracy while coordinating, testing, and tracking 500+ deployments end-to-end.",
-      "Developed and tested firmware for solar MPPT pump controllers; led a technical team managing 500+ OTA updates and field installations with 90% data accuracy.",
-      "Translated technical requirements into functional specifications and clear reports, liaising between engineering execution and business stakeholder reporting needs — core Agile business-analyst workflow.",
-      "Tracked resource allocation and budget data across R&D projects to support operational efficiency reporting for senior management.",
+      "Translated business and technical requirements into functional specifications and Business Requirements Documents (BRDs) for NB-IoT, 4G RMS, and 2G RMS projects.",
+      "Coordinated development, testing, and end-to-end project execution within a Scrum-based delivery environment, collaborating with cross-functional technology teams.",
+      "Supported stakeholder reporting by tracking project progress, resource allocation, and budget data to improve visibility for senior-management decision-making.",
+      "Bridged business and technical requirements to support project delivery, issue resolution, and continuous improvement.",
     ],
-    skills: ["Firmware Testing", "Data Integrity", "Requirements Translation", "Budget Tracking", "Agile / Scrum", "OTA Telemetry"],
+    skills: ["BRDs & Functional Specs", "Requirements Translation", "Scrum / Agile", "Stakeholder Reporting", "Budget Tracking", "Testing Coordination"],
   },
   {
     id: "dreamskill",
-    role: "Founder & Firmware Lead",
-    company: "DreamSkill (Startup Initiative)",
+    role: "Co-Founder & Freelance Project Developer (Dreamskill)",
+    company: "Dreamskill",
     location: "Kannur, India",
-    period: "Sep 2020 – Jan 2022",
-    badge: "Entrepreneurial Leadership",
-    type: "Entrepreneurial",
+    period: "Sep 2020 – Aug 2022",
+    badge: "Self-employed",
+    type: "Self-employed",
     description:
-      "Founded and led a 6-member cross-functional team to commercialize automated health-safety hardware during COVID-19, leading product design, circuit architecture, FP&A, and business operations.",
+      "Co-founded a student initiative during COVID-19, managing end-to-end project requirements, customer solutions, budgeting, and operations.",
     contributions: [
-      "Led end-to-end product design, microcontroller circuit development, and firmware coding for automated contactless hand-sanitizer dispensers.",
-      "Formulated financial plans, pricing strategy, inventory budgets, and working capital allocations for institutional client rollouts.",
-      "Coordinated procurement, assembly, testing, and post-sale service operations across schools and commercial facilities.",
+      "Co-founded a six-member student initiative during COVID-19, contributing to requirements, budgeting, business processes, execution, and sales.",
+      "Coordinated project activities and customer requirements for freelance projects, ensuring requirements were understood and translated into deliverable solutions.",
+      "Delivered STEM-based technical classes for school students and managed project execution across multiple activities.",
+      "Contributed to business development and operational activities while coordinating with team members and customers.",
     ],
-    skills: ["Team Leadership", "FP&A & Budgeting", "Circuit Design", "Product Lifecycle", "Process Modeling", "Vendor Sourcing"],
-  },
-  {
-    id: "freelance",
-    role: "Freelance Embedded & IoT Systems Developer",
-    company: "Self-Employed",
-    location: "Remote / Kerala, India",
-    period: "Nov 2021 – Aug 2022",
-    type: "Freelance",
-    description:
-      "Engineered tailored embedded hardware and IoT monitoring solutions from requirements scoping through physical prototyping, firmware programming, and cloud dashboard deployment.",
-    contributions: [
-      "Designed and delivered IoT and embedded systems projects end-to-end, including the AgriSense Farm Control System, Car Black Box telemetry logger, and smart switchboard modules.",
-      "Implemented communication protocols (UART, SPI, I2C) and sensor integrations across Arduino, ESP32, NodeMCU ESP8266, and PIC microcontrollers.",
-    ],
-    skills: ["Embedded C/C++", "Microcontrollers", "Hardware Debugging", "Sensors", "IoT Dashboards", "Rapid Prototyping"],
+    skills: ["Requirements Scoping", "Budgeting", "Business Processes", "Project Coordination", "Customer Requirements", "Business Development"],
   },
   {
     id: "bsnl",

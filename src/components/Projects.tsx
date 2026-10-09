@@ -25,7 +25,7 @@ export default function Projects() {
           Featured Projects
         </h2>
         <p className="text-neutral-400 text-sm sm:text-base max-w-xl font-normal">
-          Five focal case studies representing the core pillars: Business &amp; Data Analytics, Financial Modeling, and Embedded Systems.
+          Five focal case studies representing the core domains: Data Analytics &amp; Business Intelligence, and Finance &amp; Banking Analytics.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export default function Projects() {
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-2 flex items-center gap-4">
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
                     <Link
                       href={`/projects/${project.slug}`}
                       className="btn-minimal"
@@ -105,6 +105,17 @@ export default function Projects() {
                       <span>View Case Study</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-minimal-primary inline-flex items-center gap-1.5"
+                      >
+                        <span>Explore Interactive Dashboard</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
 

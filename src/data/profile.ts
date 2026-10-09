@@ -18,13 +18,13 @@ export interface Profile {
 
 export const PROFILE: Profile = {
   name: "AKHIL AJITH K C",
-  title: "DATA & BUSINESS ANALYST",
-  tagline: "Engineering foundation. Analytical mindset. Business perspective.",
-  headline: "Turning data into decisions, with an engineering foundation.",
+  title: "BUSINESS ANALYST",
+  tagline: "Business Requirements · Process Improvement · Data-Driven Decisions",
+  headline: "I turn business problems into actionable solutions.",
   narrative:
-    "Data & Business Analyst combining a computer science and embedded systems engineering foundation with an MBA in Banking & Financial Engineering. Specialized in requirement gathering, ETL automation, financial modeling, and executive KPI reporting.",
+    "Business Analyst focused on understanding business needs, translating requirements into practical solutions, and using data-driven insights to support better decisions. With a foundation in Computer Science & Engineering and a completed MBA in Banking & Financial Engineering, majoring in Financial Engineering with minors in Business Analytics and Digital Marketing, I bring together business understanding, analytical thinking, and technical knowledge.",
   summary:
-    "Experienced in analyzing business problems across banking, finance, and operations. Proven track record of streamlining ETL pipelines (cutting prep time by 30%), conducting AML and fraud risk analytics across 10,000+ transactions, and engineering production IoT firmware deployments.",
+    "My core focus is Business Analysis, including requirements analysis, stakeholder collaboration, project coordination, process improvement, and solution evaluation. My supporting strengths include Data Analytics, MIS Reporting, Financial Modelling, and Banking & Risk Analytics.",
   email: "akhilajithkc@gmail.com",
   location: "Kerala, India",
   links: {

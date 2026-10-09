@@ -28,7 +28,7 @@ export const EDUCATION_LIST: EducationItem[] = [
     institution: "Chandigarh University",
     location: "Mohali, India",
     period: "Aug 2024 – Jun 2026",
-    details: "Focusing on financial econometrics, risk assessment, corporate modeling, and business analytics.",
+    details: "Focused on financial econometrics, risk assessment, corporate modeling, and business analytics.",
   },
   {
     degree: "Emertxe Certified Embedded Professional (ECEP)",

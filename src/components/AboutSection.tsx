@@ -23,15 +23,15 @@ export default function AboutSection() {
         {/* Narrative Paragraphs */}
         <div className="lg:col-span-8 space-y-5 text-neutral-300 text-sm sm:text-base font-normal leading-relaxed">
           <p className="text-lg sm:text-xl font-semibold text-white">
-            I turn data into business decisions.
+            I turn business problems into actionable solutions.
           </p>
 
           <p>
-            I’m a Data &amp; Business Analyst focused on transforming complex business problems and raw data into actionable insights, dashboards, financial models, and strategic solutions. With a foundation in Computer Science &amp; Engineering and a completed MBA in Banking &amp; Financial Engineering, majoring in Financial Engineering with minors in Business Analytics and Digital Marketing, I bring a strong analytical and technical perspective to business decision-making.
+            I’m a Business Analyst focused on understanding business needs, translating requirements into practical solutions, and using data-driven insights to support better decisions. With a foundation in Computer Science &amp; Engineering and a completed MBA in Banking &amp; Financial Engineering, majoring in Financial Engineering with minors in Business Analytics and Digital Marketing, I bring together business understanding, analytical thinking, and technical knowledge.
           </p>
 
           <p className="text-white font-medium">
-            My core focus is Business &amp; Data Analytics, complemented by a strong interest in Finance Analytics, Financial Modelling, and Banking &amp; Risk Analytics.
+            My core focus is Business Analysis, including requirements analysis, stakeholder collaboration, project coordination, process improvement, and solution evaluation. My supporting strengths include Data Analytics, MIS Reporting, Financial Modelling, and Banking &amp; Risk Analytics.
           </p>
         </div>
       </div>

@@ -55,9 +55,21 @@ export default function Experience() {
                 </div>
               </div>
 
-              {/* Company & Location */}
-              <div className="text-xs sm:text-sm font-mono text-neutral-300 mb-3">
-                {exp.company} {exp.location && `· ${exp.location}`}
+              {/* Company, Employment Type & Location */}
+              <div className="text-xs sm:text-sm font-mono text-neutral-300 mb-3 flex items-center gap-2 flex-wrap">
+                <span>{exp.company}</span>
+                {exp.type && (
+                  <>
+                    <span className="text-neutral-500">·</span>
+                    <span className="text-neutral-400">{exp.type}</span>
+                  </>
+                )}
+                {exp.location && (
+                  <>
+                    <span className="text-neutral-500">·</span>
+                    <span className="text-neutral-400">{exp.location}</span>
+                  </>
+                )}
               </div>
 
               {/* Summary Description */}

@@ -9,26 +9,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Akhil Ajith K C | Data & Business Analyst",
+  title: "Akhil Ajith K C | Business Analyst",
   description:
-    "Professional portfolio of Akhil Ajith K C — Data & Business Analyst combining a computer science and embedded systems engineering foundation with an MBA in Banking & Financial Engineering.",
+    "Professional portfolio of Akhil Ajith K C — Business Analyst focused on business requirements, process improvement, and data-driven decisions.",
   keywords: [
     "Akhil Ajith K C",
-    "Data Analyst",
     "Business Analyst",
+    "Requirements Analysis",
+    "Data Analytics",
+    "MIS Reporting",
     "Financial Modeling",
     "Power BI",
     "SQL",
     "Python",
-    "Embedded Systems",
-    "IoT",
     "Portfolio",
   ],
   authors: [{ name: "Akhil Ajith K C" }],
   openGraph: {
-    title: "Akhil Ajith K C | Data & Business Analyst",
+    title: "Akhil Ajith K C | Business Analyst",
     description:
-      "Engineering foundation. Analytical mindset. Business perspective. Explore featured case studies in banking risk, financial modeling, and embedded telemetry.",
+      "Business Requirements · Process Improvement · Data-Driven Decisions. Explore portfolio case studies and expertise.",
     type: "website",
   },
 };

@@ -18,7 +18,7 @@ export default function Expertise() {
           Areas of Expertise
         </h2>
         <p className="text-neutral-400 text-sm sm:text-base max-w-xl font-normal">
-          Three interconnected domains forming a cohesive professional discipline: hardware engineering rigor, financial acumen, and data-driven business analytics.
+          Three interconnected domains forming a cohesive professional discipline: business analysis, data analytics &amp; business intelligence, and finance &amp; banking analytics.
         </p>
       </div>
 

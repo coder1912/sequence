@@ -60,7 +60,7 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
   // STAGE 4: (84% - 100% scroll) - Center bottom transition to Featured Projects
   // -------------------------------------------------------------
   const stage4Opacity = useTransform(scrollProgress, [0.82, 0.90, 1.0], [0, 1, 1]);
-  const stage4Y = useTransform(scrollProgress, [0.82, 1.0], [30, 0]);
+  const stage4Y = useTransform(scrollProgress, [0.82, 0.95], [16, 0]);
 
   return (
     <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-6 sm:p-10 md:p-14 max-w-6xl mx-auto w-full">
@@ -87,12 +87,12 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
 
         {/* Solid White Professional Title */}
         <p className="text-base sm:text-xl md:text-2xl font-medium text-white/90 tracking-wide uppercase mb-6">
-          ANALYTICS &amp; BUSINESS PROFESSIONAL
+          BUSINESS ANALYST
         </p>
 
         {/* Concise Supporting Pitch */}
         <p className="max-w-xl text-sm sm:text-base text-white/85 font-normal leading-relaxed mb-8">
-          Engineering foundation. Analytical mindset. Business perspective. Turning complex operational and financial data into actionable executive insights.
+          Business Requirements · Process Improvement · Data-Driven Decisions
         </p>
 
         {/* Minimal Action Controls */}
@@ -147,7 +147,7 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
       {/* STAGE 3: ENGINEERING FOUNDATION (60% SCROLL - RIGHT ALIGNED) */}
       <motion.div
         style={{ opacity: stage3Opacity, y: stage3Y }}
-        className="absolute top-[35%] right-6 sm:right-10 md:right-14 max-w-lg text-right ml-auto flex flex-col items-end"
+        className="absolute top-[28%] sm:top-[32%] md:top-[35%] right-6 sm:right-10 md:right-14 max-w-lg text-right ml-auto flex flex-col items-end"
       >
         <div className="text-xs font-mono text-neutral-400 tracking-wider mb-2">
           02 / TECHNICAL FOUNDATION
@@ -171,7 +171,7 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
       {/* STAGE 4: TRANSITION (90% SCROLL - CENTER BOTTOM) */}
       <motion.div
         style={{ opacity: stage4Opacity, y: stage4Y }}
-        className="absolute bottom-10 inset-x-0 mx-auto text-center w-full max-w-xl px-4 pointer-events-none"
+        className="absolute bottom-20 sm:bottom-24 md:bottom-24 inset-x-0 mx-auto text-center w-full max-w-xl px-4 pointer-events-none"
       >
         <div className="text-xs font-mono text-neutral-400 tracking-wider mb-1">
           FEATURED WORK
@@ -180,7 +180,7 @@ export default function Overlay({ scrollProgress }: OverlayProps) {
           Three Pillars of Work
         </h3>
         <p className="text-neutral-400 text-xs mt-1 font-mono">
-          Data Analytics · Financial Analysis · Embedded Systems
+          Business Analysis · Data Analytics &amp; BI · Finance &amp; Banking Analytics
         </p>
       </motion.div>
     </div>
